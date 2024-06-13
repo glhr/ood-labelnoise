@@ -1,0 +1,18 @@
+network:
+  name: mlpmixer
+  num_classes: '@{dataset.num_classes}'
+  image_size: '@{dataset.image_size}'
+  num_gpus: '@{num_gpus}'
+  patch_size: 4
+  depth: 6
+  dim: 512
+  channels: 3
+
+# from https://github.com/kentaroy47/vision-transformers-cifar10/blob/main/train_cifar10.py
+
+# image_size = 32,
+#     channels = 3,
+#     patch_size = args.patch,
+#     dim = 512,
+#     depth = 6,
+#     num_classes = 10

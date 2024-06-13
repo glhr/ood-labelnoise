@@ -1,0 +1,10 @@
+postprocessor:
+  name: ash
+  APS_mode: True
+  postprocessor_args:
+    percentile: 90
+    temperature: 1
+    variant: ash_s
+  postprocessor_sweep:
+    percentile_list: [65, 70, 75, 80, 85, 90, 95]
+    temperature_list: [1]

@@ -1,0 +1,1 @@
+This folder contains data visualizations & samples shown in the supplementary materials ([arXiv link](https://arxiv.org/src/2404.01775v1/anc/supplementary.pdf)), generated from the ``paper_figures.ipynb`` notebook.

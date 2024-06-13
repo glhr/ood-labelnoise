@@ -1,0 +1,8 @@
+# see https://github.com/deeplearning-wisc/dice/blob/master/models/route.py#L6
+postprocessor:
+  name: dice
+  APS_mode: True
+  postprocessor_args:
+    p: 90
+  postprocessor_sweep:
+    p_list: [10,30,50,70,90]

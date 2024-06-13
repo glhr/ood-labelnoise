@@ -1,0 +1,6 @@
+network:
+  name: cct_64x64
+  model: cct_7_3x2_64
+  num_classes: '@{dataset.num_classes}'
+  num_gpus: '@{num_gpus}'
+  img_size: '@{dataset.image_size}'

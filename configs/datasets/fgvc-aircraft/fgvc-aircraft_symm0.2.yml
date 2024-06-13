@@ -1,0 +1,33 @@
+dataset:
+  name: fgvc-aircraft_symm0.2
+  num_classes: 50
+  pre_size: 448
+  image_size: 448
+
+  interpolation: bilinear
+  normalization_type: fgvc-aircraft
+
+  num_workers: '@{num_workers}'
+  num_gpus: '@{num_gpus}'
+  num_machines: '@{num_machines}'
+
+  split_names: [train, val, test]
+
+  train:
+    dataset_class: ImglistDataset
+    data_dir: ./data/images_classic/
+    imglist_pth: ./data/benchmark_imglist/fgvc-aircraft/train_fgvc-variant_symm0.2.txt
+    batch_size: 32
+    shuffle: True
+  val:
+    dataset_class: ImglistDataset
+    data_dir: ./data/images_classic/
+    imglist_pth: ./data/benchmark_imglist/fgvc-aircraft/val_fgvc-variant_clean.txt
+    batch_size: 100
+    shuffle: False
+  test:
+    dataset_class: ImglistDataset
+    data_dir: ./data/images_classic/
+    imglist_pth: ./data/benchmark_imglist/fgvc-aircraft/test_fgvc-variant_clean.txt
+    batch_size: 100
+    shuffle: False

@@ -1,0 +1,1 @@
+This folder contains plots from the supplementary materials ([arXiv link](https://arxiv.org/src/2404.01775v1/anc/supplementary.pdf)), generated from the ``paper_figures.ipynb`` notebook. 

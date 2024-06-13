@@ -1,0 +1,9 @@
+postprocessor:
+  name: gram_mod
+  APS_mode: True
+  postprocessor_args:
+    powers: [1,2,3,4,5,6,7,8,9,10]
+    divide_by_conf: True
+    normalize_devs: False
+  postprocessor_sweep:
+    powers_list: [[1,2,3,4,5,6,7,8,9,10]]

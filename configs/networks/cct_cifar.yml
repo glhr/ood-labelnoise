@@ -1,0 +1,6 @@
+network:
+  name: cct_cifar
+  model: cct_7_3x1_32
+  num_classes: '@{dataset.num_classes}'
+  num_gpus: '@{num_gpus}'
+  img_size: '@{dataset.image_size}'

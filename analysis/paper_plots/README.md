@@ -1,0 +1,1 @@
+This folder contains plots shown in the main text of the paper, generated from the ``paper_figures.ipynb`` notebook. 

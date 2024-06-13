@@ -1,0 +1,51 @@
+# based on https://github.com/SHI-Labs/Compact-Transformers/blob/6f7d8153423797fae42df0aeac47725ec6b030f3/configs/pretrained/cct_7-3x1_cifar10_300epochs.yml
+# and https://github.com/SHI-Labs/Compact-Transformers/blob/main/train.py#L563
+
+exp_name: "'@{dataset.name}'_'@{network.model}'_'@{trainer.name}'_e'@{optimizer.num_epochs}'_lr'@{optimizer.lr}'_'@{mark}'/s'@{seed}'"
+output_dir: ./results/
+save_output: True
+merge_option: default
+mark: default
+seed: 0
+
+num_gpus: 1
+num_workers: 8
+num_machines: 1
+machine_rank: 0
+
+preprocessor:
+  name: base
+
+network:
+  pretrained: False
+
+pipeline:
+  name: train
+
+trainer:
+  name: base_cct
+
+evaluator:
+  name: base
+
+optimizer:
+  name: adamW
+  num_epochs: 300
+  lr: 0.0006 # 55e-5
+  weight_decay: 0.06 # 6e-2
+
+scheduler:
+  name: timm
+  sched: cosine
+  warmup_epochs: 10
+  cooldown_epochs: 10
+  patience_epochs: 10
+  decay_epochs: 10
+  warmup_lr: 0.000001
+  min_lr: 0.00001 # 1e-5
+  epochs: 300
+  eval_metric: top1
+
+recorder:
+  name: base
+  save_all_models: False

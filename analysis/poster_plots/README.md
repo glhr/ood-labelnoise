@@ -1,0 +1,1 @@
+This folder contains extra visualizations for the poster to be presented at CVPR'24, generated from the ``paper_figures.ipynb`` notebook. 

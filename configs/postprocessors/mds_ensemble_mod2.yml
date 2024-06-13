@@ -1,0 +1,9 @@
+postprocessor:
+  name: mds_ensemble
+  APS_mode: False
+  postprocessor_args:
+    noise: 0
+    feature_type: mean     # flat/mean/stat
+    reduce_dim: none   # none/capca/pca_50/lda
+    alpha: 1
+    agg_layers: all

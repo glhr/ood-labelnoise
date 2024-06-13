@@ -1,0 +1,1 @@
+This folder contains a CSV file produced by the `paper_figures.ipynb` notebook, used to produce Table 2 in the main paper.
