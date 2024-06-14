@@ -67,7 +67,7 @@ We benchmark the following 20 post-hoc OOD detection methods (listed in the orde
 
 | Name | Implementation | Paper |
 |---|---|---|
-| MSP |  [BasePostprocessor](openood/postprocessors/base_postprocessor.py) | [Hendrycks et al. 2023](https://openreview.net/forum?id=Hkg4TI9xl) |
+| MSP |  [BasePostprocessor](openood/postprocessors/base_postprocessor.py) | [Hendrycks et al. 2017](https://openreview.net/forum?id=Hkg4TI9xl) |
 | TempScaling | [TemperatureScalingPostprocessor](openood/postprocessors/temp_scaling_postprocessor.py) | [Guo et al. 2017](https://dl.acm.org/doi/10.5555/3305381.3305518) |
 | ODIN | [ODINPostprocessor](openood/postprocessors/odin_postprocessor.py) | [Liang et al. 2018](https://openreview.net/forum?id=H1VGkIxRZ) |
 | GEN | [GENPostprocessor](openood/postprocessors/gen_postprocessor.py) | [Liu et al. 2023](https://openaccess.thecvf.com/content/CVPR2023/html/Liu_GEN_Pushing_the_Limits_of_Softmax-Based_Out-of-Distribution_Detection_CVPR_2023_paper.html) |
