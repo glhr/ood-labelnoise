@@ -44,7 +44,7 @@ This code was tested on Ubuntu 18.04 + CUDA 11.3 & Ubuntu 20.04 + CUDA 12.5 with
 
 #### Minimal environment
 
-```shell
+```bash
 conda create --name ood-labelnoise-viz python=3.11.3
 conda activate ood-labelnoise-viz
 pip install -r requirements_viz.txt
@@ -61,6 +61,32 @@ pip install Cython==3.0.2
 pip install -r requirements_full.txt
 ```
 
+## OOD detection methods
+
+We benchmark the following 20 post-hoc OOD detection methods (listed in the order that they are presented in the paper). Their implementations are based on the [OpenOOD](https://github.com/Jingkang50/OpenOOD) benchmark, except for MDSEnsemble and GRAM which we modified to better align with the original papers.
+
+| Name | Implementation | Paper |
+|---|---|---|
+| MSP |  [BasePostprocessor](openood/postprocessors/base_postprocessor.py) | [Hendrycks et al. 2023](https://openreview.net/forum?id=Hkg4TI9xl) |
+| TempScaling | [TemperatureScalingPostprocessor](openood/postprocessors/temp_scaling_postprocessor.py) | [Guo et al. 2017](https://dl.acm.org/doi/10.5555/3305381.3305518) |
+| ODIN | [ODINPostprocessor](openood/postprocessors/odin_postprocessor.py) | [Liang et al. 2018](https://openreview.net/forum?id=H1VGkIxRZ) |
+| GEN | [GENPostprocessor](openood/postprocessors/gen_postprocessor.py) | [Liu et al. 2023](https://openaccess.thecvf.com/content/CVPR2023/html/Liu_GEN_Pushing_the_Limits_of_Softmax-Based_Out-of-Distribution_Detection_CVPR_2023_paper.html) |
+| MLS | [MaxLogitPostprocessor](openood/postprocessors/maxlogit_postprocessor.py) | [Hendrycks et al. 2022](https://proceedings.mlr.press/v162/hendrycks22a.html) |
+| EBO | [EBOPostprocessor](openood/postprocessors/ebo_postprocessor.py) | [Liu et al. 2020](https://proceedings.neurips.cc/paper/2020/hash/f5496252609c43eb8a3d147ab9b9c006-Abstract.html) |
+| REACT | [ReactPostprocessor](openood/postprocessors/react_postprocessor.py) | [Sun et al. 2021](https://proceedings.neurips.cc/paper/2021/hash/01894d6f048493d2cacde3c579c315a3-Abstract.html) |
+| RankFeat | [RankFeatPostprocessor](openood/postprocessors/rankfeat_postprocessor.py) | [Song et al. 2022](https://openreview.net/forum?id=-deKNiSOXLG) |
+| DICE | [DICEPostprocessor](openood/postprocessors/dice_postprocessor.py) | [Sun et al. 2022](https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/4405_ECCV_2022_paper.php) |
+| ASH | [ASHPostprocessor](openood/postprocessors/ash_postprocessor.py) | [Djurisic et al. 2023](https://openreview.net/forum?id=ndYXTEL6cZz) |
+| MDS | [MDSPostprocessor](openood/postprocessors/mds_postprocessor.py) | [Lee et al. 2018](https://papers.nips.cc/paper_files/paper/2018/hash/abdeb6f575ac5c6676b747bca8d09cc2-Abstract.html) |
+| MDSEnsemble | [MDSEnsemblePostprocessorMod](openood/postprocessors/mds_ensemble_mod_postprocessor.py)| [Lee et al. 2018](https://papers.nips.cc/paper_files/paper/2018/hash/abdeb6f575ac5c6676b747bca8d09cc2-Abstract.html) |
+| RMDS | [RMDSPostprocessor](openood/postprocessors/rmds_postprocessor.py) | [Ren et al. 2021](https://arxiv.org/abs/2106.09022) |
+| KLM | [KLMatchingPostprocessor](openood/postprocessors/kl_matching_postprocessor.py) | [Hendrycks et al. 2022](https://proceedings.mlr.press/v162/hendrycks22a.html) |
+| OpenMax | [OpenMax](openood/postprocessors/openmax_postprocessor.py) | [Bendale et al. 2016](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Bendale_Towards_Open_Set_CVPR_2016_paper.pdf) |
+| SHE | [SHEPostprocessor](openood/postprocessors/she_postprocessor.py) | [Zhang et al. 2023](https://openreview.net/forum?id=KkazG4lgKL) |
+| GRAM | [GRAMPostprocessorMod](openood/postprocessors/gram_mod_postprocessor.py) | [Sastry et al. 2020](https://proceedings.mlr.press/v119/sastry20a.html) |
+| KNN | [KNNPostprocessor](openood/postprocessors/knn_postprocessor.py) | [Sun et al. 2022](https://proceedings.mlr.press/v162/sun22d.html) |
+| VIM | [VIMPostprocessor](openood/postprocessors/vim_postprocessor.py) | [Wang et al. 2022](https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_ViM_Out-of-Distribution_With_Virtual-Logit_Matching_CVPR_2022_paper.pdf) |
+| GradNorm | [GradNormPostprocessor](openood/postprocessors/gradnorm_postprocessor.py) | [Huang et al. 2021](https://proceedings.neurips.cc/paper/2021/hash/063e26c670d07bb7c4d30e6fc69fe056-Abstract.html) |
 
 ## 📝 Updates
 - June 13th 2024: Code repo released
@@ -71,11 +97,13 @@ pip install -r requirements_full.txt
 If you find our work useful, please cite:
 
 ```bibtex
-@inproceedings{Humblot-Renaux_2024_CVPR,
-  title={A noisy elephant in the room: Is your out-of-distribution detector robust to label noise?},
-  author={Humblot-Renaux, Galadrielle and Escalera, Sergio and Moeslund, Thomas B.},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2024},
+@InProceedings{Humblot-Renaux_2024_CVPR,
+    author={Humblot-Renaux, Galadrielle and Escalera, Sergio and Moeslund, Thomas B.},
+    title={A Noisy Elephant in the Room: Is Your Out-of-Distribution Detector Robust to Label Noise?},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month={June},
+    year={2024},
+    pages={22626-22636}
 }
 ```
 
