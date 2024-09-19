@@ -103,7 +103,8 @@ If you find our work useful, please cite:
     booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     month={June},
     year={2024},
-    pages={22626-22636}
+    pages={22626-22636},
+    doi={10.1109/CVPR52733.2024.02135}
 }
 ```
 
